@@ -1,0 +1,76 @@
+package com.SOAP;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+import com.lpi.server.soap.IServer.FileInfo;
+import com.lpi.server.soap.IServer.Message;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		
+		
+		System.out.println("Welcome to simple java console interprate."
+		 		 		 + "Select the appropriate command:\n" 
+		 		 		 + "Press 'ping' to selest the command: ping" 
+		 		 		 + "\nPress 'echo' to selest the command: echo" 
+				 		 + "\nPress 'login' to selest the command: login: <login name>, <login password>" 
+				 		 + "\nPress 'list' to selest the command: list"
+						 + "\nPress 'msg' to selest the command: msg: <name of the msg>, <text of the msg>"
+						 + "\nPress 'file' to selest the command: file: <username>, <filename>"
+						 + "\nPress 'exit' to selest the command: exit");
+
+		
+		//============
+		
+
+		System.out.println();
+		System.out.println("\nEnter the command: ");
+
+		//============
+		
+		
+		
+	}
+	
+	
+	//======> Static methods:
+	
+	static String[] partsout(String[] array, int index) 
+	{
+		String[] result = new String[array.length - index];
+		for (int i = index; i < (array.length); i++) 
+		{
+			result[i - index] = array[i];
+		}
+		return result;
+	}
+	
+	private static FileInfo createFileInfo(String receiver, File file) throws IOException
+	{
+		 String filename = file.getName();
+		 byte[] content =  Files.readAllBytes(file.toPath());
+
+		FileInfo fileInfo = new FileInfo();
+		fileInfo.setReceiver(receiver);
+		fileInfo.setFilename(filename);
+		fileInfo.setFileContent(content);
+
+		return fileInfo;
+	}
+	
+	private static Message createMessage(String receiver, String message)
+	{
+		Message newMessage = new Message();
+		newMessage.setReceiver(receiver);
+		newMessage.setMessage(message);
+		return newMessage;
+		
+	}
+	
+	
+
+}

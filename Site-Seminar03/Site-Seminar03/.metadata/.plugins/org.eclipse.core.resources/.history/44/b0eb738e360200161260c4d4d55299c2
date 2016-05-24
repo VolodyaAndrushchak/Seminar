@@ -1,0 +1,78 @@
+package com.SemRMI;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.rmi.RemoteException;
+import java.util.TimerTask;
+
+import lpi.server.rmi.IServer;
+import lpi.server.rmi.IServer.FileInfo;
+import lpi.server.rmi.IServer.Message;
+
+@SuppressWarnings("unused")
+public class Some_Imp implements IServer
+{
+	static IServer proxy;
+	static String sessionID = null;
+	
+	
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String echo(String text) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String login(String login, String password)
+			throws RemoteException, LoginException, ArgumentException, ServerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] listUsers(String sessionId) throws RemoteException, ArgumentException, ServerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void sendMessage(String sessionId, Message msg) throws RemoteException, ArgumentException, ServerException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Message receiveMessage(String sessionId) throws RemoteException, ArgumentException, ServerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void sendFile(String sessionId, FileInfo file) throws RemoteException, ArgumentException, ServerException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public FileInfo receiveFile(String sessionId) throws RemoteException, ArgumentException, ServerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void exit(String sessionId) throws RemoteException, ArgumentException, ServerException {
+		// TODO Auto-generated method stub
+		
+	}
+		
+}

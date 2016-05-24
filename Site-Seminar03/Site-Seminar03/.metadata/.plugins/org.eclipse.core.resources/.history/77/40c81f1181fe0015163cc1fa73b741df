@@ -1,0 +1,52 @@
+package com.SemRMI;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.rmi.RemoteException;
+import java.util.TimerTask;
+
+import lpi.server.rmi.IServer;
+import lpi.server.rmi.IServer.FileInfo;
+import lpi.server.rmi.IServer.Message;
+
+public class Some_Imp 
+{
+	static IServer proxy;
+	static String sessionID = null;
+	
+	public static class MyTimerTask extends TimerTask 
+	{
+		@SuppressWarnings("unused")
+		public void run() 
+		{
+			try 
+			{
+				Message ReceivedMessage = proxy.receiveMessage(sessionID);
+				if(ReceivedMessage != null)
+				{
+					System.out.println("Incoming Message " + ReceivedMessage.getMessage() + " from " + ReceivedMessage.getSender());
+				}
+				FileInfo ReceivedFile = proxy.receiveFile(sessionID);
+				
+				if (ReceivedFile != null) 
+				{
+					Path path = Paths.get("D:\\Desktop ", ReceivedFile.getFilename());
+					Path content = Files.write(path, ReceivedFile.getFileContent(), StandardOpenOption.CREATE);
+					System.out.println("Incoming File:" + ReceivedFile.getFilename() + "from" + ReceivedFile.getSender());
+				}
+			} 
+			catch (RemoteException ex) 
+			{
+				System.out.println("RemoteException!!");
+			} 
+			catch (IOException e) 
+			{
+				System.out.println("IOException!!");
+			}
+		}
+	}
+		
+}

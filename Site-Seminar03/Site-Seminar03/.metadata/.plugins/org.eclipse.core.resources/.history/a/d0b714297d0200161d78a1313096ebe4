@@ -1,0 +1,14 @@
+package lpi.server.rmi;
+
+public class Test {
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		long start = System.currentTimeMillis();
+        // останавливаем основной поток программы на 2000 миллисекунд (2 секунды)
+        Thread.sleep(200);
+        System.out.println("¬ыполнение программы приостановлено на = " + (System.currentTimeMillis() - start));
+         
+	}
+
+}

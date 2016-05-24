@@ -1,0 +1,16 @@
+package lpi.server.rmi;
+
+import java.io.File;
+import java.util.Date;
+
+public class Test {
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		File file = new File("employee.xm");
+        
+       
+   
+	}
+
+}

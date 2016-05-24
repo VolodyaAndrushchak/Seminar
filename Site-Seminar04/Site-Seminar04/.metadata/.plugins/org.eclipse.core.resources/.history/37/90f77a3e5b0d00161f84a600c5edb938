@@ -1,0 +1,32 @@
+package com.SOAP;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		
+		
+		System.out.println("Welcome to simple java console interprate."
+		 		 		 + "Select the appropriate command:\n" 
+		 		 		 + "Press 'ping' to selest the command: ping" 
+		 		 		 + "\nPress 'echo' to selest the command: echo" 
+				 		 + "\nPress 'login' to selest the command: login: <login name>, <login password>" 
+				 		 + "\nPress 'list' to selest the command: list"
+						 + "\nPress 'msg' to selest the command: msg: <name of the msg>, <text of the msg>"
+						 + "\nPress 'file' to selest the command: file: <username>, <filename>"
+						 + "\nPress 'exit' to selest the command: exit");
+
+		
+		//============
+		
+
+		System.out.println();
+		System.out.println("\nEnter the command: ");
+
+		//============
+		
+		
+		
+	}
+
+}
